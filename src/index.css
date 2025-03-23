@@ -31,14 +31,6 @@
 
 @import 'tailwindcss';
 
-.bg-custom-desktop{
-    background-image: url("./assets/images/background-desktop.png"), url("./assets/images/pattern-lines.svg"), url("./assets/images/pattern-circle.svg"), url("./assets/images/pattern-squiggly-line-bottom-desktop.svg");
-    background-position: unset, unset, bottom left, top right;
-    background-size: cover, cover, contain, contain;
-    background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
-    z-index: 0, 10, 0, 0;
-}
-
 .bg-desktop-layer-1{
     background-image: url("./assets/images/background-desktop.png");
     background-size: cover;
