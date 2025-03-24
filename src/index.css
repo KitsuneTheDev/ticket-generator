@@ -54,12 +54,21 @@
     z-index: 4;
 }
 
-.bg-desktop-layer-4{
+.bg-desktop-layer-4-1{
     background-image: url("./assets/images/pattern-squiggly-line-bottom-desktop.svg");
     background-size: 50%;
-    background-position: left bottom;
+    background-position: left 75%;
     background-repeat: no-repeat;
     z-index: 6;
+}
+
+.bg-desktop-layer-4-2{
+    background-image: url("./assets/images/pattern-squiggly-line-bottom-desktop.svg");
+    background-size: 50%;
+    background-position: 90% 110%;
+    background-repeat: no-repeat;
+    z-index: 6;
+    transform: rotate(90deg);
 }
 
 .bg-desktop-layer-5{

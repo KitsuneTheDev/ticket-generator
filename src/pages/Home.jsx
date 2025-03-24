@@ -9,7 +9,7 @@ export default function Home() {
             <div className="bg-layer absolute bg-desktop-layer-1 inset-0"></div>
             <div className="bg-layer absolute bg-desktop-layer-2 inset-0"></div>
             <div className="bg-layer absolute bg-desktop-layer-3 inset-0"></div>
-            <div className="bg-layer absolute bg-desktop-layer-4 inset-0"></div>
+            <div className="bg-layer absolute bg-desktop-layer-4-1 inset-0"></div>
             <div className="bg-layer absolute bg-desktop-layer-5 inset-0"></div>
             <div className="bg-layer"></div>
         </div>
