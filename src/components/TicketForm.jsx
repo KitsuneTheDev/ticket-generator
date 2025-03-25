@@ -1,5 +1,12 @@
 export default function TicketForm() {
     return(
+        <>
+        <div className="banner-container text-white flex-col justify-center items-center mt-15 w-1/2">
+            <div className="banner flex flex-col items-center justify-center w-full"> 
+                <h1 className="header-main text-5xl font-bold w-[80%] text-center tracking-wide">Your Journey to Coding Conf 2025 Starts Here!</h1>
+                <p className="description mt-3 text-xl font-lighter opacity-80 whitespace-pre">Secure your spot at next year's biggest coding conferance.</p>
+            </div>
+        </div>
         <div className="form-container text-white w-[22%] h-1/2 flex flex-col items-center mt-2">
             <form action="" className="h-full w-full mt-5 flex flex-col justify-between">
                 <div className="avatar-container h-[25%]">
@@ -41,5 +48,6 @@ export default function TicketForm() {
                 </div>
             </form>
         </div>
+        </>
     );
 }
