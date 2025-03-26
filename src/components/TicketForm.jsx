@@ -1,4 +1,26 @@
+import { useState } from "react";
+
 export default function TicketForm() {
+
+    const [avatarFile, setAvatarFile] = useState(null);
+
+    function handleAvatarDragOver(event) {
+        event.preventDefault();
+    }
+
+    function handleAvatarDrop(event) {
+        event.preventDefault();
+        if(event.dataTransfer.files.length) {
+            const theFile = event.dataTransfer.files[0];
+            setAvatarFile(theFile);
+        }
+    }
+
+    function handleAvatarChange(event) {
+        console.log(event.target.files)
+        setAvatarFile(event.target.files[0]);
+    }
+
     return(
         <>
         <div className="banner-container text-white flex-col justify-center items-center mt-15 w-1/2">
@@ -8,14 +30,14 @@ export default function TicketForm() {
             </div>
         </div>
         <div className="form-container text-white w-[22%] h-1/2 flex flex-col items-center mt-2">
-            <form action="" className="h-full w-full mt-5 flex flex-col justify-between">
+            <form action="" className="h-full w-full mt-5 flex flex-col justify-between" onSubmit={handleFormSubmit} >
                 <div className="avatar-container h-[25%]">
                     <p className="font-medium text-white/80">Upload Avatar</p>
-                    <label htmlFor="image-upload-input" className="h-full w-full">
+                    <label htmlFor="image-upload-input" className="h-full w-full" onDragOver={handleAvatarDragOver} onDrop={handleAvatarDrop} >
                         <div className="flex flex-col items-center justify-center image-input-container bg-white/10 h-full rounded-xl overflow-hidden outline-2 outline-white/20 outline-dashed mt-2 group hover:cursor-pointer">
                             <img src="./src/assets/images/icon-upload.svg" alt="upload logo" className="h-[40%] w-fit border-white/10 border-2 rounded-xl" />
-                            <p className="text-white/30">Drag and drop or click to upload</p>
-                            <input type="file" accept="image/png, image/jpeg" id="image-upload-input" className="group-hover:cursor-pointer hidden"></input>
+                            <p className="text-white/30">{avatarFile ? `File selected: ${avatarFile.name}` : `Drag and drop or click to upload`}</p>
+                            <input type="file" accept="image/png, image/jpeg" id="image-upload-input" className="group-hover:cursor-pointer hidden" onChange={handleAvatarChange} required />
                         </div>
                     </label>
                     <div className="upload-description mt-3 flex gap-2">
@@ -27,19 +49,19 @@ export default function TicketForm() {
                     <div className="user-information-section mt-3">
                         <label htmlFor="name-input">
                             <p>Full Name</p>
-                            <input type="text" id="name-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="Type Here..."/>
+                            <input type="text" id="name-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="Type Here..." required />
                         </label>
                     </div>
                     <div className="user-information-section mt-3">
                         <label htmlFor="mail-input">
                             <p>Email Address</p>
-                            <input type="email" id="mail-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="example@email.com" />
+                            <input type="email" id="mail-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="example@email.com" required />
                         </label>
                     </div>
                     <div className="user-information-section mt-3">
                         <label htmlFor="github-input">
                             <p>Github Username</p>
-                            <input type="text" id="github-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="@yourusername" />
+                            <input type="text" id="github-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="@yourusername" required />
                         </label>
                     </div>
                 </div>

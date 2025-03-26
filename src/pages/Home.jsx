@@ -25,7 +25,7 @@ export default function Home() {
         </div>
         <div className="main-container w-screen h-screen font-Inconsolata flex flex-col items-center">
             <Navbar />
-            <Ticket details={ticket} />
+            {component === "form" ? <TicketForm /> : <Ticket details={ticket} />}
         </div>
         </>
     );
