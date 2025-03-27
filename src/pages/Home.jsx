@@ -1,17 +1,12 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Navbar from "../components/Navbar.jsx";
 import TicketForm from "../components/TicketForm.jsx";
 import Ticket from "../components/Ticket.jsx";
+import { AppContext } from "../context/AppContext.jsx";
 
 export default function Home() {
 
-    const [component, setComponent] = useState('form');
-    const [ticket, setTicket] = useState({
-        id: 1,
-        name: "Ozan Çelikkol",
-        email: "example@email.com",
-        githubUsername: "KitsuneTheDev",
-    });
+    const { compType, ticket } = useContext(AppContext);
 
     return(
         <>
@@ -25,7 +20,7 @@ export default function Home() {
         </div>
         <div className="main-container w-screen h-screen font-Inconsolata flex flex-col items-center">
             <Navbar />
-            {component === "form" ? <TicketForm /> : <Ticket details={ticket} />}
+            {compType === "form" ? <TicketForm /> : <Ticket details={ticket} />}
         </div>
         </>
     );

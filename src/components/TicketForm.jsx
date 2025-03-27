@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/AppContext";
 
 export default function TicketForm() {
 
+    const { setTicket, setCompType } = useContext(AppContext);
     const [avatarFile, setAvatarFile] = useState(null);
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [githubName, setGithubName] = useState("");
 
     function handleAvatarDragOver(event) {
         event.preventDefault();
@@ -20,6 +25,30 @@ export default function TicketForm() {
         console.log(event.target.files)
         setAvatarFile(event.target.files[0]);
     }
+
+    function handleNameChange(event) {
+        setUsername(event.target.value);
+    }
+
+    function handleMailChange(event) {
+        setEmail(event.target.value);
+    }
+
+    function handleGithubChange(event) {
+        setGithubName(event.target.value);
+    }
+
+    function handleFormSubmit() {
+        const imageURL = URL.createObjectURL(avatarFile);
+
+        setTicket({
+            avatar: imageURL,
+            username: username,
+            email: email,
+            githubName: githubName,
+        });
+        setCompType('ticket');
+    }   
 
     return(
         <>
@@ -49,24 +78,24 @@ export default function TicketForm() {
                     <div className="user-information-section mt-3">
                         <label htmlFor="name-input">
                             <p>Full Name</p>
-                            <input type="text" id="name-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="Type Here..." required />
+                            <input type="text" id="name-input" onChange={handleNameChange} className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="Type Here..." required />
                         </label>
                     </div>
                     <div className="user-information-section mt-3">
                         <label htmlFor="mail-input">
                             <p>Email Address</p>
-                            <input type="email" id="mail-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="example@email.com" required />
+                            <input type="email" id="mail-input" onChange={handleMailChange} className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="example@email.com" required />
                         </label>
                     </div>
                     <div className="user-information-section mt-3">
                         <label htmlFor="github-input">
                             <p>Github Username</p>
-                            <input type="text" id="github-input" className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="@yourusername" required />
+                            <input type="text" id="github-input" onChange={handleGithubChange} className="bg-white/10 w-full mt-1.5 h-9 outline-2 outline-white/20 rounded-md p-1.5" placeholder="@yourusername" required />
                         </label>
                     </div>
                 </div>
                 <div className="submit-button-container w-full">
-                    <button className="form-submit-button w-full bg-[#EA6F61] h-12 rounded-md hover:cursor-pointer mt-6 text-black font-bold">Generate My Ticket</button>
+                    <button type="submit" className="form-submit-button w-full bg-[#EA6F61] h-12 rounded-md hover:cursor-pointer mt-6 text-black font-bold">Generate My Ticket</button>
                 </div>
             </form>
         </div>

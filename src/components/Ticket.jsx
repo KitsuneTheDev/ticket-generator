@@ -6,7 +6,7 @@ export default function Ticket(props) {
         <>
             <div className="banner-container text-white flex-col justify-center items-center mt-15 w-1/2">
                 <div className="banner flex flex-col items-center justify-center w-full"> 
-                    <h1 className="header-main text-5xl font-bold w-[70%] text-center tracking-wide">Congrats, <span className="bg-gradient-to-r from-[#EA6F61] to-white text-transparent bg-clip-text">{ticket.name}</span>!
+                    <h1 className="header-main text-5xl font-bold w-[70%] text-center tracking-wide">Congrats, <span className="bg-gradient-to-r from-[#EA6F61] to-white text-transparent bg-clip-text">{ticket.username}</span>!
                     Your ticket is ready</h1>
                     <p className="description mt-6 text-xl font-lighter opacity-80 whitespace-pre-line text-center">
                         We've emailed your ticket to<br/>
@@ -28,13 +28,13 @@ export default function Ticket(props) {
                     </div>
                     <div className="bottom-info-container h[50%] m-[5%] flex gap-[5%]">
                         <div className="avatar-container flex">
-                            <img src="./src/assets/images/logo-mark.svg" alt="event logo without name" />
+                            <img src={ticket.avatar} alt="event logo without name" width={50} />
                         </div>
                         <div className="userInfo-container flex flex-col items-start">
-                            <p className="text-2xl text-white">{ticket.name}</p>
+                            <p className="text-2xl text-white">{ticket.username}</p>
                             <div className="github-container flex gap-[5%]">
                                 <img src="./src/assets/images/icon-github.svg"/>
-                                <p>{ticket.githubUsername}</p>
+                                <p>{ticket.githubName}</p>
                             </div>
                         </div>
                     </div>
