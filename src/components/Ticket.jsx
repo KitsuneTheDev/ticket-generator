@@ -1,6 +1,7 @@
 export default function Ticket(props) {
     
     const ticket = props.details;
+    console.log(ticket)
 
     return(
         <>
@@ -27,8 +28,8 @@ export default function Ticket(props) {
                         </div>
                     </div>
                     <div className="bottom-info-container h[50%] m-[5%] flex gap-[5%]">
-                        <div className="avatar-container flex">
-                            <img src={ticket.avatar} alt="event logo without name" width={50} />
+                        <div className="avatar-container flex w-fit h-fit rounded-xl overflow-hidden">
+                            <img src={ticket.avatar} alt="user photo" width={50} />
                         </div>
                         <div className="userInfo-container flex flex-col items-start">
                             <p className="text-2xl text-white">{ticket.username}</p>
@@ -40,7 +41,7 @@ export default function Ticket(props) {
                     </div>
                 </div>
                 <div className="ticket-info-container text-white/40 text-2xl text-center w-[20%] h-full flex items-center justify-center transform -rotate-270">
-                <p>#52170</p>
+                <p>{`#${ticket.ticketId}`}</p>
                 </div>
             </div>
         </>

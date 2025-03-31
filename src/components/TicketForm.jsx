@@ -41,11 +41,15 @@ export default function TicketForm() {
     function handleFormSubmit() {
         const imageURL = URL.createObjectURL(avatarFile);
 
+        const newId = Math.random(60000 - 50000) * 10000 + 50000;
+        console.log("ID-->", newId);
+
         setTicket({
             avatar: imageURL,
             username: username,
             email: email,
             githubName: githubName,
+            ticketId: Math.floor(newId),
         });
         setCompType('ticket');
     }   
