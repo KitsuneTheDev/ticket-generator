@@ -21,7 +21,7 @@ A Front-End Challenge from FrontEndMentor. A form that requires some inputs to g
 
 ## Demo
 
-![Demo GIF](./src/assets/demo/ticket-generator-gif.gif)
+![Demo GIF](./src/assets/demo/ticket-generator.gif)
 
 ## License
 
