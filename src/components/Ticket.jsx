@@ -28,8 +28,8 @@ export default function Ticket(props) {
                         </div>
                     </div>
                     <div className="bottom-info-container h[50%] m-[5%] flex gap-[5%]">
-                        <div className="avatar-container flex w-fit h-fit rounded-xl overflow-hidden">
-                            <img src={ticket.avatar} alt="user photo" width={50} />
+                        <div className="avatar-container flex w-[60px] h-[60px] rounded-xl overflow-hidden">
+                            <img src={ticket.avatar} alt="user photo" className="w-full h-full object-cover" />
                         </div>
                         <div className="userInfo-container flex flex-col items-start">
                             <p className="text-2xl text-white">{ticket.username}</p>
